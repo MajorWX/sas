@@ -16,7 +16,7 @@ else {
 $pageTitle = 'Salamander Details';
 
 // include the shared path to the header
-require_once('../../private/shared/salamander-footer.php');
+require_once('../../private/shared/salamander-header.php');
 ?>
 
 <h2>Salamander Details</h2>
