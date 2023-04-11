@@ -7,7 +7,7 @@
       $dbhost = 'localhost';
       $dbuser = 'ufhniitg74txz';
       $dbpass = '~tnE17#g2#4z';
-      $dbname = 'dbphwiqkyidx4a';
+      $dbname = 'dbhfirzwlacnum';
     } else {
       // Localhost Credentials
       $dbhost = 'localhost';
