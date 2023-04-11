@@ -1,5 +1,5 @@
 <?php require_once('../private/initialize.php'); ?>
-
+<!-- phase02/public/index.php -->
 <?php 
 // Add the pageTitle
 $pageTitle = "SAS - Home";
