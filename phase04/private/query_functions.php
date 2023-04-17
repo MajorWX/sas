@@ -24,3 +24,28 @@ function find_subject_by_id($id)
   mysqli_free_result($result);
   return $salamander; //Returns an assoc array
 }
+
+function insert_subject($salamanderName, $habitat, $description)
+{
+  global $db;
+
+  $sql = "INSERT INTO salamander ";
+  $sql .= "(name, habitat, description) ";
+  $sql .= "VALUES (";
+  $sql .= "'" . $salamanderName . "', ";
+  $sql .= "'" . $habitat . "', ";
+  $sql .= "'" . $description . "'";
+  $sql .= ")";
+
+  $result = mysqli_query($db, $sql);
+
+  if($result) {
+    return true;
+
+  } else {
+    // INSERT failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
