@@ -3,9 +3,10 @@ require_once('../../private/initialize.php');
 
 if (is_post_request()) {
 
-  $salamanderName = $_POST['salamanderName'] ?? '';
-  $habitat = $_POST['habitat'] ?? '';
-  $description = $_POST['description'] ?? '';
+  $salamander = [];
+  $salamander['name'] = $_POST['salamanderName'] ?? '';
+  $salamander['habitat'] = $_POST['habitat'] ?? '';
+  $salamander['description'] = $_POST['description'] ?? '';
 
   // $sql = "INSERT INTO salamander ";
   // $sql .= "(name, habitat, description) ";
@@ -17,7 +18,7 @@ if (is_post_request()) {
 
   // $result = mysqli_query($db, $sql);
 
-  $result = insert_subject($salamanderName, $habitat, $description);
+  $result = insert_subject($salamander);
   $new_id = mysqli_insert_id($db);
 
 

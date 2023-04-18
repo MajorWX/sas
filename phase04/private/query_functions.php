@@ -25,16 +25,16 @@ function find_subject_by_id($id)
   return $salamander; //Returns an assoc array
 }
 
-function insert_subject($salamanderName, $habitat, $description)
+function insert_subject($salamander)
 {
   global $db;
 
   $sql = "INSERT INTO salamander ";
   $sql .= "(name, habitat, description) ";
   $sql .= "VALUES (";
-  $sql .= "'" . $salamanderName . "', ";
-  $sql .= "'" . $habitat . "', ";
-  $sql .= "'" . $description . "'";
+  $sql .= "'" . $salamander['name'] . "', ";
+  $sql .= "'" . $salamander['habitat'] . "', ";
+  $sql .= "'" . $salamander['description'] . "'";
   $sql .= ")";
 
   $result = mysqli_query($db, $sql);
