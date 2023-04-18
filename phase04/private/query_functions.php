@@ -49,3 +49,29 @@ function insert_subject($salamanderName, $habitat, $description)
     exit;
   }
 }
+
+function update_subject($salamander)
+{
+  global $db;
+
+  $sql = "UPDATE salamander SET ";
+  $sql .= "name='" . $salamander['name'] . "', ";
+  $sql .= "habitat='" . $salamander['habitat'] . "', ";
+  $sql .= "description='" . $salamander['description'] . "' ";
+  $sql .= "WHERE id='" . $salamander['id'] . "' ";
+  $sql .= "LIMIT 1";
+
+  // echo $sql;
+  // exit();
+
+  $result = mysqli_query($db, $sql);
+
+  if($result) {
+    return true;
+  } else {
+    // UPDATE failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
