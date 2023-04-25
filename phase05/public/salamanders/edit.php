@@ -23,7 +23,12 @@ if (is_post_request()) {
   // $sql .= "LIMIT 1";
 
   $result = update_subject($salamander);
-  redirect_to(url_for('salamanders/show.php?id=' . $id));
+  if($result === true) {
+    redirect_to(url_for('salamanders/show.php?id=' . $id));
+  } else {
+    $errors = $result;
+  }
+  
 
   // if($result) {
   //   redirect_to(url_for('salamanders/show.php?id=' . $id));
@@ -45,6 +50,9 @@ include(SHARED_PATH . '/salamander-header.php');
 ?>
 <a href="<?= url_for('/salamanders/index.php'); ?>">&laquo; Back to List</a>
 <h1>Edit Salamander</h1>
+
+<?php echo display_errors($errors); ?>
+
 <!-- add label -->
 <form action="<?= url_for('salamanders/edit.php?id=' . h(u($id))); ?>" method="post">
   <label for="salamanderName">Name</label><br>
